@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <title>MiniCore Ventas | Comisiones</title>
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="container">
+            <h1>MiniCore Ventas</h1>
+            <p>Sistema de gestión de comisiones</p>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <section class="card" aria-labelledby="filtros-title">
+            <h2 id="filtros-title">Consultar comisiones</h2>
+
+            <form id="form-comisiones">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="fecha-inicio">Fecha inicial</label>
+                        <input type="date" id="fecha-inicio"
+                               name="fecha_inicio" required
+                               value="2026-10-01">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="fecha-fin">Fecha final</label>
+                        <input type="date" id="fecha-fin"
+                               name="fecha_fin" required
+                               value="2026-10-12">
+                    </div>
+                </div>
+
+                <button type="submit" id="btn-consultar">
+                    Consultar comisiones
+                </button>
+            </form>
+        </section>
+
+        <section class="card" aria-labelledby="resultados-title">
+            <h2 id="resultados-title">Resultados</h2>
+
+            <p id="mensaje" role="status" aria-live="polite">
+                Selecciona las fechas para consultar.
+            </p>
+
+            <div class="table-container">
+                <table>
+                    <caption>Comisiones por vendedor</caption>
+                    <thead>
+                        <tr>
+                            <th scope="col">Vendedor</th>
+                            <th scope="col">Ventas</th>
+                            <th scope="col">Total vendido</th>
+                            <th scope="col">Comisión 10%</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabla-resultados"></tbody>
+                    <tfoot>
+                        <tr>
+                            <th scope="row" colspan="3">Total comisiones</th>
+                            <td id="total-comisiones">$0.00</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <p>MiniCore Ventas | Ejercicio académico MVC</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"
+            defer></script>
+</body>
+</html>
